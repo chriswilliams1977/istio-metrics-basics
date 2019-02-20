@@ -8,12 +8,11 @@ spec:
   gateways:
   - gocore-gateway
   http:
-  - route:
+  - fault:
+      abort: #abort request
+        percent: 50 #50% of requests get aborted
+        httpStatus: 400 #return 400 error
+    route:
     - destination:
         host: gocore-service
         subset: v1
-      weight: 75 #traffic split 75% to v1
-    - destination:
-        host: gocore-service
-        subset: v2
-      weight: 25

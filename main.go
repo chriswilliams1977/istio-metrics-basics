@@ -18,7 +18,7 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	fmt.Fprint(w, "Hello world!")
+	fmt.Fprint(w, "Bye Bye world!")
 }
 
 func healthCheckHandler(w http.ResponseWriter, r *http.Request) {

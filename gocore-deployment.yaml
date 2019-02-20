@@ -16,3 +16,22 @@ spec:
         imagePullPolicy: Always #IfNotPresent
         ports:
         - containerPort: 3001 #map to container listening port
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gocore-v2 #pod name
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gocore #label for deployment object
+        version: v2 #version
+    spec:
+      containers:
+      - name: gocore #name of container
+        image: gcr.io/williamscj-istio-demos/istio-metrics-basics:v2 #gcr image
+        imagePullPolicy: Always #IfNotPresent
+        ports:
+        - containerPort: 3001 #map to container listening port

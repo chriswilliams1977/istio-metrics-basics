@@ -8,12 +8,11 @@ spec:
   gateways:
   - gocore-gateway
   http:
-  - route:
+  - fault:
+      delay: #set delay on request
+        fixedDelay: 5s #set delay duration for 5 seconds
+        percent: 100 #set delay 100% of requests
+    route:
     - destination:
         host: gocore-service
         subset: v1
-      weight: 75 #traffic split 75% to v1
-    - destination:
-        host: gocore-service
-        subset: v2
-      weight: 25
